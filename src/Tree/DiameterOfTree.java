@@ -13,7 +13,9 @@ public class DiameterOfTree {
             left = right = null;
         }
     }
-
+static class Min{
+        int mini = Integer.MIN_VALUE;
+}
 
    static int diameter(Node root){
         if(root == null){
@@ -36,7 +38,25 @@ public class DiameterOfTree {
         int right = height(root.right);
         return Math.max(left+1,right+1);
    }
+//O(n) approach height2 and dia2
+    static int height2(Node root,Min min){
+        if(root == null){
+            return 0;
+        }
+        int lheight = height2(root.left,min);
+        int rheight = height2(root.right,min);
 
+        min.mini = Math.max(min.mini,(1+lheight+rheight));
+        return Math.max(1+lheight,1+rheight);
+    }
+    static int diameter2(Node root){
+        if(root == null){
+            return 0;
+        }
+        Min min = new Min();
+        int ans = height2(root,min);
+        return min.mini;
+    }
     public static void main(String[] args) {
 
         Node root = new Node(1);
@@ -45,6 +65,7 @@ public class DiameterOfTree {
         root.left.left = new Node(4);
         root.left.right = new Node(5);
         System.out.println(diameter(root));
+        System.out.println(diameter2(root));
 
     }
 }
