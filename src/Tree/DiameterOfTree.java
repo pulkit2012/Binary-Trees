@@ -14,19 +14,28 @@ public class DiameterOfTree {
         }
     }
 
-    static int height(Node root) {
-        if (root == null) {
+
+   static int diameter(Node root){
+        if(root == null){
+            return 0;
+        }
+        int leftHeight = height(root.left);
+        int rightHeight = height(root.right);
+
+        int leftDia = diameter(root.left);
+        int rightDia = diameter(root.right);
+
+        return Math.max((leftHeight + rightHeight + 1),Math.max(leftDia,rightDia));
+   }
+
+   static int height(Node root){
+        if(root == null){
             return 0;
         }
         int left = height(root.left);
         int right = height(root.right);
-        if (left > right) {
-            return (left + 1);
-        }
-        else{
-            return (right + 1);
-        }
-    }
+        return Math.max(left+1,right+1);
+   }
 
     public static void main(String[] args) {
 
@@ -35,7 +44,7 @@ public class DiameterOfTree {
         root.right = new Node(3);
         root.left.left = new Node(4);
         root.left.right = new Node(5);
+        System.out.println(diameter(root));
 
-        System.out.println(height(root));
     }
 }
