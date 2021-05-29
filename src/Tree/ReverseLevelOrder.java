@@ -15,22 +15,22 @@ public class ReverseLevelOrder {
         }
     }
 
-    static int height(Node root){
-        int left = 0;
-        int right = 0;
-        if(root != null){
-            if(root.left != null){
-                left = 1 + height(root.left);
-            }
-            if(root.right != null){
-                right = 1 + height(root.right);
-            }
+    static int height(Node root) {
+        if (root == null) {
+            return 0;
         }
-       return Math.max(right,left);
+        int left = height(root.left);
+        int right = height(root.right);
+        if (left > right) {
+            return (left + 1);
+        }
+        else{
+            return (right + 1);
+        }
     }
     static void reverseLevelOrder(Node root){
         int h = height(root);
-        for (int i = h+1; i >= 1; i--) {
+        for (int i = h; i >= 1; i--) {
             printReverseLevel(root,i);
         }
     }
@@ -77,15 +77,5 @@ public class ReverseLevelOrder {
         reverseLevelOrder(root);
         System.out.println();
         printReverseLevelMeth2(root);
-    }
-}
-class test{
-    public static void main(String[] args) {
-        Stack<Integer> stack = new Stack<>();
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        System.out.println(stack);
-
     }
 }

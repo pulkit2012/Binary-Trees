@@ -36,7 +36,7 @@ public class LevelOrder {
     }
     static void levelOrderTraversal(Node root){
         int h = height(root);
-        for (int i = 1; i <= h+1; i++) {
+        for (int i = 1; i <= h; i++) {
             printLevelOrder(root,i);
         }
     }
@@ -53,17 +53,17 @@ public class LevelOrder {
         }
     }
     static int height(Node root) {
-        int left = 0;
-        int right = 0;
-        if (root != null) {
-            if (root.left != null) {
-                left = 1 + height(root.left);
-            }
-            if (root.right != null) {
-                right = 1 + height(root.right);
-            }
+        if (root == null) {
+            return 0;
         }
-        return Math.max(left, right);
+        int left = height(root.left);
+        int right = height(root.right);
+        if (left > right) {
+            return (left + 1);
+        }
+        else{
+            return (right + 1);
+        }
     }
     static void printLevelOrderMethod2(Node root){
         Queue<Node> queue = new LinkedList<Node>();
@@ -79,22 +79,7 @@ public class LevelOrder {
             }
         }
     }
-    static int height2(Node root)
-    {
-        if (root == null)
-            return 0;
-        else
-        {
-            /* compute  height of each subtree */
-            int lheight = height(root.left);
-            int rheight = height(root.right);
 
-            /* use the larger one */
-            if (lheight > rheight)
-                return(lheight+1);
-            else return(rheight+1);
-        }
-    }
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter root");
