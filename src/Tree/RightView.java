@@ -13,7 +13,7 @@ public class RightView {
             left = right = null;
         }
     }
-
+    //iterative approach
     static void rightView(Node root) {
         Queue<Node> q = new LinkedList<>();
         q.add(root);
@@ -48,8 +48,8 @@ public class RightView {
         rightView2Util(root.right,level+1);
         rightView2Util(root.left,level+1);
     }
-    static void rightView2(Node root){
-        rightView2Util(root,1);
+    static void rightView2(Node root) {
+        rightView2Util(root, 1);
     }
     public static void main(String[] args) {
         Node root = new Node(1);
