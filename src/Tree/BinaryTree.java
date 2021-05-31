@@ -33,7 +33,7 @@ public class BinaryTree {
             }
         }
     }
-
+    //recursive time:- O(n) space:- O(h) or O(1)
     static void inorderTraversal(Node root) {
         if (root == null) {
             return;
@@ -42,7 +42,7 @@ public class BinaryTree {
         System.out.print(root.data + " ");
         inorderTraversal(root.right);
     }
-
+    // time:- O(n) space:- extra used
     static void inOrderWithoutRecursion(Node root) {
         if (root == null) {
             return;
@@ -60,7 +60,7 @@ public class BinaryTree {
         }
 
     }
-
+    //time:- O(n) space:- O(1)
     static void morrisInorder(Node root) {
         Node current = root;
         while (current != null) {
@@ -83,7 +83,7 @@ public class BinaryTree {
             }
         }
     }
-
+    //recursive time:- O(n) space:- O(h) or O(1)
     static void preOrderTraversal(Node root) {
         if (root == null) {
             return;
@@ -92,7 +92,7 @@ public class BinaryTree {
         preOrderTraversal(root.left);
         preOrderTraversal(root.right);
     }
-
+    // time:- O(n) space:- O(n)
     static void preOrderWithoutRecursion(Node root) {
         Stack<Node> stack = new Stack<>();
         stack.push(root);
@@ -109,8 +109,8 @@ public class BinaryTree {
             }
         }
     }
-
-    static void preOrderTraversalWithoutStack(Node root) {
+    //time:- O(n) space:- O(h) h == height
+    static void preOrderTraversalStackOptimised(Node root) {
         Stack<Node> stack = new Stack<>();
         Node curr = root;
         while (curr != null || !stack.isEmpty()) {
@@ -128,7 +128,7 @@ public class BinaryTree {
             }
         }
     }
-
+    //time:- O(n) space:- O(1)
     static void morrisPreorder(Node root) {
         Node current = root;
         while (current != null) {
@@ -151,7 +151,7 @@ public class BinaryTree {
             }
         }
     }
-
+    //recursive time:- O(n) space:- O(h) or O(1)
     static void postOrderTraversal(Node root) {
         if (root == null) {
             return;
@@ -160,7 +160,7 @@ public class BinaryTree {
         postOrderTraversal(root.right);
         System.out.print(root.data + " ");
     }
-
+    //time:- O(n) space:- Extra Used
     static void postOrderTwoStacks(Node root) {
         Stack<Node> stack = new Stack<>();
         Stack<Node> stack2 = new Stack<>();
@@ -184,7 +184,7 @@ public class BinaryTree {
             }
         }
     }
-
+    //time:- O(n) space:- one stack used
     static void postOrderOneStack(Node root) {
         Stack<Node> stack = new Stack<>();
         while (true) {
