@@ -225,14 +225,14 @@ public class BinaryTree {
 
 
         //inorder Traversals-----------------
-        // inorderTraversal(root);
+        inorderTraversal(root);
         //inOrderWithoutRecursion(root);
-        //System.out.println();
+        System.out.println();
         //morrisInorder(root);
 
 
         //Pre Order Traversals-----------------
-        //preOrderTraversal(root);
+        preOrderTraversal(root);
         //System.out.println();
         // morrisPreorder(root);
         //preOrderWithoutRecursion(root);
