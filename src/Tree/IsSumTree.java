@@ -10,7 +10,7 @@ public class IsSumTree {
             left = right = null;
         }
     }
-
+    //approach one time:- O(n^2)
     static int sum(Node root) {
         if (root == null) {
             return 0;
@@ -31,7 +31,7 @@ public class IsSumTree {
         return false;
     }
 
-    // another approach
+    // another approach time:- O(n)
     static boolean isLeaf(Node root) {
         if (root == null) {
             return false;
